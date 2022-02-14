@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.mltec.module.login">
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        >
+        <activity android:name="com.mltec.module.login.ui.activity.LoginActivity"
+            tools:ignore="Instantiatable" />
+    </application>
+
+</manifest>

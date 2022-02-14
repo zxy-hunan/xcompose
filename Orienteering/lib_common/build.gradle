@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+}
+apply plugin: 'dagger.hilt.android.plugin'
+
+def root = rootProject.ext
+android {
+    compileSdk root.android.compileSdkVersion
+    buildFeatures {
+        viewBinding true
+    }
+
+    defaultConfig {
+        applicationId root.android.app
+        minSdk root.android.minSdkVersion
+        targetSdk root.android.targetSdkVersion
+        versionCode root.android.versionCode
+        versionName root.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    api root.dependencies.appcompat
+    api root.dependencies.material
+    api root.dependencies.constraintlayout
+    api root.dependencies.livedata
+    api root.dependencies.viewmodel
+    api root.dependencies.legacyv4
+    api root.dependencies.splashscreen
+    api root.libARouter
+    implementation root.hilt
+    annotationProcessor root.compiler
+
+    implementation project(":lib_application")
+    implementation project(":lib_utils")
+}
